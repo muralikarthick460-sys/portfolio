@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murali Karthick K | Portfolio</title>
+  <meta name="description" content="Portfolio of Murali Karthick K - Second Year Student at KGCAS, Web Developer & Creator of the Courier Parcel Tracking Status System. Based in Tenkasi, India.">
+  <meta name="author" content="Murali Karthick K">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Murali Karthick Homepage">
+        <span class="logo-box">MK</span>
+        <span class="logo-text">Murali<span class="accent-text">Karthick</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active" data-nav="home">
+              <span class="nav-dot"></span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link" data-nav="projects">
+              <span class="nav-dot"></span>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-nav="contact">
+              <span class="nav-dot"></span>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions (Theme Switcher & Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- Theme Accent Switcher -->
+        <div class="theme-switcher" title="Change Theme Accent Color">
+          <button class="theme-btn active" data-color="cyan" title="Cyan Electric" aria-label="Cyan theme"></button>
+          <button class="theme-btn" data-color="violet" title="Neon Violet" aria-label="Violet theme"></button>
+          <button class="theme-btn" data-color="emerald" title="Emerald Glow" aria-label="Emerald theme"></button>
+          <button class="theme-btn" data-color="amber" title="Sunset Amber" aria-label="Amber theme"></button>
+        </div>
+
+        <!-- Quick Contact CTA -->
+        <a href="#contact" class="btn btn-outline btn-sm nav-cta">
+          <span>Let's Talk</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-inner">
+      <div class="mobile-drawer-header">
+        <div class="brand-logo">
+          <span class="logo-box">MK</span>
+          <span class="logo-text">Murali<span class="accent-text">Karthick</span></span>
+        </div>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="#home" class="mobile-nav-link active">Home</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <p class="drawer-caption">Color Theme</p>
+        <div class="theme-switcher mobile-theme-switcher">
+          <button class="theme-btn active" data-color="cyan" title="Cyan"></button>
+          <button class="theme-btn" data-color="violet" title="Violet"></button>
+          <button class="theme-btn" data-color="emerald" title="Emerald"></button>
+          <button class="theme-btn" data-color="amber" title="Amber"></button>
+        </div>
+        <div class="drawer-socials">
+          <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/murali-karthick036" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8v-8.37M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+          </a>
+          <a href="mailto:muralikarthick460@gmail.com" class="social-icon-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- SECTION 1: HOME -->
+    <section class="section home-section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Text Details -->
+          <div class="hero-content reveal-left">
+            <div class="hero-badge">
+              <span class="pulsing-dot"></span>
+              <span class="badge-text">Available for Opportunities & Projects</span>
+            </div>
+
+            <div class="greeting-wrap">
+              <span class="greeting-prefix">Hi there, I am</span>
+              <h1 class="hero-name">Murali Karthick <span class="accent-text">K</span></h1>
+            </div>
+
+            <div class="hero-typewriter-container">
+              <span class="typewriter-prefix">I am a </span>
+              <span class="typewriter-text" id="typewriterText"></span>
+              <span class="typewriter-cursor">|</span>
+            </div>
+
+            <!-- Highlights Badges (KGCAS, Second Year, Tenkasi India) -->
+            <div class="student-meta-tags">
+              <div class="meta-tag">
+                <span class="meta-icon">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 4.19L18.78 9 12 11.81 5.22 9 12 7.19zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+                </span>
+                <span class="meta-info">
+                  <strong>KGCAS Student</strong>
+                  <small>KG College of Arts and Science</small>
+                </span>
+              </div>
+
+              <div class="meta-tag">
+                <span class="meta-icon">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V9h14v10zm0-12H5V5h14v2zM7 11h5v5H7z"/></svg>
+                </span>
+                <span class="meta-info">
+                  <strong>Second Year</strong>
+                  <small>Undergraduate Degree</small>
+                </span>
+              </div>
+
+              <div class="meta-tag">
+                <span class="meta-icon">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                </span>
+                <span class="meta-info">
+                  <strong>Tenkasi, India</strong>
+                  <small>Tamil Nadu</small>
+                </span>
+              </div>
+            </div>
+
+            <p class="hero-description">
+              Passionate developer dedicated to crafting responsive, high-performance web applications and solving real-world challenges through creative programming. Currently pursuing my undergraduate degree at <strong>KGCAS</strong> and actively building software solutions like parcel tracking systems.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <span>View Projects</span>
+                <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              </a>
+              <a href="#contact" class="btn btn-glass">
+                <span>Contact Me</span>
+                <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+            </div>
+
+            <!-- Social Links Strip -->
+            <div class="hero-socials">
+              <span class="socials-label">Connect:</span>
+              <div class="social-links">
+                <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="social-pill" title="Murali Karthick on GitHub">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/murali-karthick036" target="_blank" rel="noopener noreferrer" class="social-pill" title="Murali Karthick on LinkedIn">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8v-8.37M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+                  <span>LinkedIn</span>
+                </a>
+                <button class="social-pill gmail-quick-pill" id="quickGmailBtn" title="Direct Email">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  <span>Gmail</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Highlighted Project Sneak Peek Box -->
+            <div class="home-featured-callout">
+              <div class="callout-header">
+                <span class="callout-badge">⭐ Highlighted Project</span>
+                <span class="callout-status">Active Codebase</span>
+              </div>
+              <h4 class="callout-title">Courier Parcel Tracking Status System</h4>
+              <p class="callout-desc">Full-featured parcel tracking workflow with real-time status progression, tracking verification, and responsive dashboards.</p>
+              <a href="#projects" class="callout-link">
+                <span>View Project Deep-Dive</span>
+                <svg viewBox="0 0 24 24" class="svg-icon-xs"><path fill="currentColor" d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Hero Visual: Photo with 3D Card Tilt & Floating Glass Badges -->
+          <div class="hero-visual reveal-right">
+            <div class="photo-card-wrapper" id="photoTiltCard">
+              <div class="photo-border-glow"></div>
+              <div class="photo-card-inner">
+                <img src="profile.jpg.jpeg" alt="Murali Karthick K" class="profile-photo" loading="eager">
+                <div class="photo-overlay-gradient"></div>
+                
+                <div class="photo-caption-bar">
+                  <span class="caption-name">Murali Karthick K</span>
+                  <span class="caption-sub">Student & Software Developer</span>
+                </div>
+              </div>
+
+              <!-- Floating Badges Around Photo -->
+              <div class="float-badge badge-top-left">
+                <div class="float-icon">📍</div>
+                <div class="float-text">
+                  <span>Tenkasi</span>
+                  <small>Tamil Nadu, IN</small>
+                </div>
+              </div>
+
+              <div class="float-badge badge-top-right">
+                <div class="float-icon">🎓</div>
+                <div class="float-text">
+                  <span>KGCAS</span>
+                  <small>2nd Year</small>
+                </div>
+              </div>
+
+              <div class="float-badge badge-bottom-right">
+                <div class="float-icon">📦</div>
+                <div class="float-text">
+                  <span>Courier System</span>
+                  <small>Built with GitHub</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PROJECTS -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header text-center reveal-fade">
+          <span class="section-tag">Showcase & Portfolio</span>
+          <h2 class="section-title">Featured <span class="accent-text">Projects</span></h2>
+          <p class="section-subtitle">
+            Explore my highlighted software application and GitHub repositories built with precision, clean structure, and interactive logic.
+          </p>
+        </div>
+
+        <!-- MAIN HIGHLIGHTED PROJECT CARD -->
+        <div class="featured-project-card reveal-up" id="featuredProject">
+          <div class="featured-grid">
+            
+            <!-- Project Information Column -->
+            <div class="project-info-col">
+              <div class="project-badge-row">
+                <span class="highlight-tag">🌟 Flagship Project</span>
+                <span class="badge-repo-status">Verified Repository</span>
+              </div>
+
+              <h3 class="project-title">Courier Parcel Tracking Status System</h3>
+
+              <p class="project-summary">
+                A robust tracking and shipment lifecycle management system tailored for tracking express packages from dispatch to final customer doorstep. It provides real-time status verification, automated timeline milestones, sender-recipient details, and estimated time of delivery.
+              </p>
+
+              <!-- Feature Highlights -->
+              <div class="project-highlights-list">
+                <div class="highlight-item">
+                  <div class="highlight-bullet">✓</div>
+                  <div>
+                    <strong>Instant Status Verification:</strong> Real-time tracking ID query with instant feedback on current shipment location and state.
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <div class="highlight-bullet">✓</div>
+                  <div>
+                    <strong>Interactive 5-Stage Timeline:</strong> Booked &rarr; Dispatched &rarr; In Transit &rarr; Out for Delivery &rarr; Delivered.
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <div class="highlight-bullet">✓</div>
+                  <div>
+                    <strong>Adaptive & Responsive Interface:</strong> Optimized for smartphones, tablets, and desktop workstations for logistics operators.
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <div class="highlight-bullet">✓</div>
+                  <div>
+                    <strong>Data Integrity & Error Handling:</strong> Comprehensive validation for incorrect IDs, invalid characters, and pending dispatches.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="tech-stack-wrap">
+                <span class="tech-label">Technologies Used:</span>
+                <div class="tech-tags">
+                  <span class="tech-tag">HTML5 Semantic</span>
+                  <span class="tech-tag">Modern CSS3</span>
+                  <span class="tech-tag">JavaScript (ES6+)</span>
+                  <span class="tech-tag">Status State Machine</span>
+                  <span class="tech-tag">Responsive UI/UX</span>
+                </div>
+              </div>
+
+              <!-- Direct Action Buttons -->
+              <div class="project-action-buttons">
+                <a href="https://github.com/muralikarthick460-sys/-Courier-Parcel-Tracking-Status-System" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  <span>Visit on GitHub</span>
+                  <svg viewBox="0 0 24 24" class="svg-icon-xs"><path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5V5z"/></svg>
+                </a>
+
+                <button class="btn btn-glass" id="testSimulatorBtn" type="button">
+                  <span class="pulse-spark">✨</span>
+                  <span>Try Interactive Simulator</span>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Interactive Live Simulator Column -->
+            <div class="project-simulator-col">
+              <div class="simulator-card">
+                <div class="simulator-header">
+                  <div class="sim-dots">
+                    <span class="sim-dot red"></span>
+                    <span class="sim-dot yellow"></span>
+                    <span class="sim-dot green"></span>
+                  </div>
+                  <div class="sim-title">Live Tracking Simulator Demo</div>
+                  <div class="sim-badge">Interactive</div>
+                </div>
+
+                <div class="simulator-body">
+                  <label class="sim-input-label" for="trackingInput">Enter Tracking Number:</label>
+                  <div class="sim-search-bar">
+                    <input type="text" id="trackingInput" class="sim-input" value="TRK-9842-TEN" placeholder="e.g. TRK-9842-TEN">
+                    <button class="sim-track-btn" id="trackSubmitBtn" type="button">Track</button>
+                  </div>
+
+                  <!-- Quick sample pills to try -->
+                  <div class="sample-pills">
+                    <span class="pill-label">Sample IDs:</span>
+                    <button class="sample-pill" data-code="TRK-9842-TEN">TRK-9842-TEN</button>
+                    <button class="sample-pill" data-code="TRK-5120-KGC">TRK-5120-KGC</button>
+                    <button class="sample-pill" data-code="TRK-3041-DEL">TRK-3041-DEL</button>
+                  </div>
+
+                  <!-- Dynamic Result Display Box -->
+                  <div class="sim-result-box" id="simResultBox">
+                    <div class="sim-status-header">
+                      <div class="sim-status-title">
+                        <span class="sim-parcel-icon">📦</span>
+                        <div>
+                          <strong id="simStatusHeading">In Transit &bull; Tenkasi Hub</strong>
+                          <div class="sim-sub-info" id="simSubInfo">Destination: Coimbatore, TN | ETA: Tomorrow, 2:00 PM</div>
+                        </div>
+                      </div>
+                      <span class="sim-status-chip chip-transit" id="simStatusChip">In Transit</span>
+                    </div>
+
+                    <!-- Progress Bar Track -->
+                    <div class="sim-progress-track">
+                      <div class="sim-progress-bar" id="simProgressBar" style="width: 65%;"></div>
+                    </div>
+
+                    <!-- 5-Step Timeline -->
+                    <div class="sim-timeline">
+                      <div class="timeline-step completed" id="step1">
+                        <div class="step-circle">✓</div>
+                        <span class="step-name">Booked</span>
+                      </div>
+                      <div class="timeline-step completed" id="step2">
+                        <div class="step-circle">✓</div>
+                        <span class="step-name">Dispatched</span>
+                      </div>
+                      <div class="timeline-step active" id="step3">
+                        <div class="step-circle">🚚</div>
+                        <span class="step-name">In Transit</span>
+                      </div>
+                      <div class="timeline-step" id="step4">
+                        <div class="step-circle">🛵</div>
+                        <span class="step-name">Out for Delivery</span>
+                      </div>
+                      <div class="timeline-step" id="step5">
+                        <div class="step-circle">🎁</div>
+                        <span class="step-name">Delivered</span>
+                      </div>
+                    </div>
+
+                    <!-- Live Milestone Log -->
+                    <div class="sim-logs" id="simLogs">
+                      <div class="log-entry">
+                        <span class="log-time">Today, 10:45 AM</span>
+                        <span class="log-msg">Departed Sorting Facility &bull; Tenkasi Logistics Hub</span>
+                      </div>
+                      <div class="log-entry">
+                        <span class="log-time">Yesterday, 06:12 PM</span>
+                        <span class="log-msg">Processed & Scanned at KGCAS Collection Point</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="simulator-footer">
+                  <span>Simulating real-time parcel event logs &bull; Built by Murali Karthick</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MORE PROJECTS & GITHUB REPOSITORIES SHOWCASE -->
+        <div class="more-projects-section reveal-fade">
+          <div class="sub-section-title-wrap">
+            <h3 class="sub-section-title">More Works & Development Expertise</h3>
+            <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="view-all-github-link">
+              <span>View All Repositories on GitHub</span>
+              <svg viewBox="0 0 24 24" class="svg-icon-xs"><path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5V5z"/></svg>
+            </a>
+          </div>
+
+          <div class="projects-grid">
+            
+            <!-- Project Card 2: GitHub Repository Showcase -->
+            <div class="project-card tilt-item">
+              <div class="card-glow-bg"></div>
+              <div class="card-content">
+                <div class="card-icon-header">
+                  <div class="card-icon github-icon-bg">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </div>
+                  <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="card-ext-btn" title="Open GitHub Repositories">
+                    <svg viewBox="0 0 24 24" class="svg-icon-xs"><path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5V5z"/></svg>
+                  </a>
+                </div>
+                <h4 class="card-title">muralikarthick460-sys Repositories</h4>
+                <p class="card-desc">
+                  Curated collection of academic assignments, JavaScript experiments, and software engineering modules created during my 2nd year at KGCAS.
+                </p>
+                <div class="card-tags">
+                  <span>Open Source</span>
+                  <span>Git & GitHub</span>
+                  <span>Lab Work</span>
+                </div>
+                <div class="card-footer-action">
+                  <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="link-arrow">
+                    <span>Browse All Repositories</span>
+                    <span>&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 3: Interactive Web Portfolios & UI Design -->
+            <div class="project-card tilt-item">
+              <div class="card-glow-bg"></div>
+              <div class="card-content">
+                <div class="card-icon-header">
+                  <div class="card-icon ui-icon-bg">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M12 3C6.48 3 2 7.48 2 13s4.48 10 10 10c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c3.87 0 7-3.13 7-7 0-5.52-4.48-10-11-10zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                  </div>
+                  <span class="card-badge-pill">Frontend Design</span>
+                </div>
+                <h4 class="card-title">Modern Responsive Web Engineering</h4>
+                <p class="card-desc">
+                  Building bespoke web layouts featuring dynamic theme accent switching, interactive glassmorphic cards, custom animations, and mobile-first performance.
+                </p>
+                <div class="card-tags">
+                  <span>HTML5</span>
+                  <span>CSS3 Animations</span>
+                  <span>Vanilla JavaScript</span>
+                </div>
+                <div class="card-footer-action">
+                  <span class="active-badge-status">
+                    <span class="small-dot"></span> Live in this Portfolio
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 4: Academic & College Work (KGCAS) -->
+            <div class="project-card tilt-item">
+              <div class="card-glow-bg"></div>
+              <div class="card-content">
+                <div class="card-icon-header">
+                  <div class="card-icon edu-icon-bg">
+                    <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 4.19L18.78 9 12 11.81 5.22 9 12 7.19zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+                  </div>
+                  <span class="card-badge-pill">Academic & Lab</span>
+                </div>
+                <h4 class="card-title">KGCAS 2nd Year Computer Science Projects</h4>
+                <p class="card-desc">
+                  Curriculum-focused algorithms, database modeling, software engineering principles, and object-oriented systems developed at KG College of Arts and Science.
+                </p>
+                <div class="card-tags">
+                  <span>Data Structures</span>
+                  <span>Database Systems</span>
+                  <span>Algorithms</span>
+                </div>
+                <div class="card-footer-action">
+                  <span class="academic-highlight-text">
+                    📍 KGCAS &bull; Second Year
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: CONTACT & INTEGRATIONS -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header text-center reveal-fade">
+          <span class="section-tag">Let's Connect</span>
+          <h2 class="section-title">Get In <span class="accent-text">Touch</span></h2>
+          <p class="section-subtitle">
+            Feel free to reach out for collaborations, project discussions, or academic inquiries. Click below to toggle Gmail or connect on LinkedIn and GitHub.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- LEFT COLUMN: GMAIL TOGGLE & INTERACTIVE MESSAGING HUB -->
+          <div class="contact-interactive-col reveal-left">
+            <div class="contact-main-card">
+              
+              <!-- Card Header with Toggle Switch -->
+              <div class="contact-card-top">
+                <div class="gmail-branding">
+                  <div class="gmail-icon-wrap">
+                    <svg viewBox="0 0 24 24" class="svg-icon gmail-logo-color"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="contact-card-title">Gmail Contact Hub</h3>
+                    <span class="contact-card-subtitle">Official Direct Channel</span>
+                  </div>
+                </div>
+
+                <!-- Interactive View Toggle -->
+                <div class="contact-mode-toggle" id="contactModeToggle">
+                  <button class="mode-toggle-btn active" id="btnModeQuick" type="button">Quick Access</button>
+                  <button class="mode-toggle-btn" id="btnModeCompose" type="button">Compose Mail</button>
+                </div>
+              </div>
+
+              <!-- VIEW 1: QUICK ACCESS (DEFAULT) -->
+              <div class="mode-view-panel active" id="quickAccessView">
+                <div class="email-display-box">
+                  <div class="email-meta-label">Primary Email Address:</div>
+                  <div class="email-address-row">
+                    <code class="email-text" id="targetEmail">muralikarthick460@gmail.com</code>
+                    <button class="btn-copy-email" id="copyEmailBtn" type="button" title="Copy to clipboard">
+                      <svg viewBox="0 0 24 24" class="svg-icon-xs" id="copyIcon"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                      <span id="copyBtnText">Copy</span>
+                    </button>
+                  </div>
+                </div>
+
+                <p class="quick-view-desc">
+                  Click below to open your preferred email client or directly trigger a new Gmail message pre-addressed to <strong>muralikarthick460@gmail.com</strong>.
+                </p>
+
+                <div class="quick-action-buttons">
+                  <!-- Direct Web Gmail Compose Button -->
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muralikarthick460@gmail.com&su=Hello%20Murali%20-%20From%20Portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-gmail">
+                    <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>Open in Gmail (Web)</span>
+                  </a>
+
+                  <!-- Mailto Default Client -->
+                  <a href="mailto:muralikarthick460@gmail.com?subject=Inquiry%20from%20Portfolio%20Website" class="btn btn-glass">
+                    <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    <span>Default Mail Client</span>
+                  </a>
+                </div>
+
+                <!-- Instant Message Quick-Toggles -->
+                <div class="quick-templates-box">
+                  <span class="template-title">Quick Subjects to discuss:</span>
+                  <div class="template-pills">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muralikarthick460@gmail.com&su=Project%20Collaboration%20Inquiry" target="_blank" class="tmpl-pill">🤝 Project Collaboration</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muralikarthick460@gmail.com&su=Courier%20Parcel%20Tracking%20System%20Discussion" target="_blank" class="tmpl-pill">📦 Courier Tracking System</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muralikarthick460@gmail.com&su=Internship%20/%20Student%20Opportunity" target="_blank" class="tmpl-pill">💼 Internship / Opportunity</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 2: INTERACTIVE COMPOSE FORM -->
+              <div class="mode-view-panel" id="composeMailView">
+                <form class="contact-form" id="contactForm">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="senderName" class="form-label">Your Name</label>
+                      <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Sharma" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="senderEmail" class="form-label">Your Email</label>
+                      <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@example.com" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="emailSubject" class="form-label">Subject</label>
+                    <input type="text" id="emailSubject" class="form-input" placeholder="Regarding Courier Tracking or Collaboration" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="emailMessage" class="form-label">Message</label>
+                    <textarea id="emailMessage" class="form-textarea" rows="4" placeholder="Hello Murali, I visited your portfolio and wanted to reach out regarding..." required></textarea>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-submit">
+                      <span>Send via Gmail</span>
+                      <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                    <button type="button" class="btn btn-glass" id="cancelComposeBtn">
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: SOCIAL PLATFORMS & LOCATION DETAILS -->
+          <div class="contact-links-col reveal-right">
+            
+            <!-- GitHub Integration Card -->
+            <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="social-integration-card" id="cardGithub">
+              <div class="social-icon-wrapper github-glow">
+                <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </div>
+              <div class="social-card-info">
+                <div class="social-card-tag">GitHub Repositories</div>
+                <div class="social-card-title">muralikarthick460-sys</div>
+                <div class="social-card-desc">Browse code repositories, student projects, and commits</div>
+              </div>
+              <div class="social-card-arrow">
+                <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              </div>
+            </a>
+
+            <!-- LinkedIn Integration Card -->
+            <a href="https://www.linkedin.com/in/murali-karthick036" target="_blank" rel="noopener noreferrer" class="social-integration-card" id="cardLinkedin">
+              <div class="social-icon-wrapper linkedin-glow">
+                <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8v-8.37M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+              </div>
+              <div class="social-card-info">
+                <div class="social-card-tag">Professional Network</div>
+                <div class="social-card-title">murali-karthick036</div>
+                <div class="social-card-desc">Connect on LinkedIn for career milestones & networking</div>
+              </div>
+              <div class="social-card-arrow">
+                <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              </div>
+            </a>
+
+            <!-- Student Location & College Card -->
+            <div class="social-integration-card static-meta-card">
+              <div class="social-icon-wrapper location-glow">
+                <svg viewBox="0 0 24 24" class="svg-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              </div>
+              <div class="social-card-info">
+                <div class="social-card-tag">Location & Institution</div>
+                <div class="social-card-title">Tenkasi, Tamil Nadu, India</div>
+                <div class="social-card-desc">KG College of Arts and Science (KGCAS) &bull; Second Year Student</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="brand-logo">
+          <span class="logo-box">MK</span>
+          <span class="logo-text">Murali<span class="accent-text">Karthick</span></span>
+        </a>
+        <p class="footer-desc">
+          Undergraduate Student & Software Developer passionate about creating intuitive digital experiences.
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="footer-heading">Navigation</span>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-socials">
+        <span class="footer-heading">Connect</span>
+        <div class="footer-icons">
+          <a href="https://github.com/muralikarthick460-sys?tab=repositories" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/murali-karthick036" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8v-8.37M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+          </a>
+          <a href="mailto:muralikarthick460@gmail.com" class="footer-icon-btn" aria-label="Gmail">
+            <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; <span id="currentYear">2026</span> Murali Karthick K. All rights reserved.</p>
+        <p class="footer-credits">Crafted with HTML &bull; CSS &bull; JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" class="svg-icon-sm"><path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- Interactive Toast Notification -->
+  <div class="toast-notification" id="toastNotification">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
